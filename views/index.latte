@@ -1,0 +1,22 @@
+{layout 'layout.latte'}
+
+{block title}Welcome{/block}
+
+{block content}
+    <h1>Welcome</h1>
+
+    <p n:if="empty($_SESSION['user_id'])">
+        <a href="/register">Register for an API key</a>
+
+        or
+
+        <a href="/login">Log in</a>
+    </p>
+    <p n:else>
+        <a href="/profile">View profile</a> 
+
+        or 
+
+        <a href="/logout">Log out</a>
+    </p>
+{/block}

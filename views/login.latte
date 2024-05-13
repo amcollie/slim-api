@@ -1,0 +1,19 @@
+{layout 'layout.latte'}
+
+{block title}Log In{/block}
+
+{block content}
+    <h1>Log In</h1>
+
+    <p n:if="isset($error)">{$error}</p>
+
+    <form method="post" action="/login">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" value="{$data['email'] ?? ''}">
+
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+
+        <button type="submit">Log in</button>
+    </form>
+{/block}

@@ -1,0 +1,34 @@
+{layout 'layout.latte'}
+
+{block title}Register{/block}
+
+{block content}
+    <h1>Register</h1>
+
+    <form method="post" action="/register">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" value="{$data['name'] ?? ''}">
+            <ul n:if="isset($errors['name'])">
+                <li n:inner-foreach="$errors['name'] as $error">{$error}</li>
+            </ul>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" value="{$data['email'] ?? ''}">
+        <ul n:if="isset($errors['email'])">
+            <li n:inner-foreach="$errors['email'] as $error">{$error}</li>
+        </ul>
+
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+        <ul n:if="isset($errors['password'])">
+            <li n:inner-foreach="$errors['password'] as $error">{$error}</li>
+        </ul>
+
+        <label for="password_confirmation">Password Confirmation</label>
+        <input type="password" name="password_confirmation" id="password_confirmation">
+        <ul n:if="isset($errors['password_confirmation'])">
+            <li n:inner-foreach="$errors['password_confirmation'] as $error">{$error}</li>
+        </ul>
+
+        <button type="submit">Register</button>
+    </form>
+{/block}
